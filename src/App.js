@@ -1,21 +1,21 @@
 import React from 'react';
-import SignUp from './SignUp.js';
-import Login from './Login.js';
-import Noticeboard from './Noticeboard.js'
+import { Route } from 'react-router-dom';
+import Login from './Login';
+import Noticeboard from './Noticeboard';
+import Navbar from './Navbar';
+import SignUp from './SignUp';
+import Home from './Home';
 
-
-class App extends React.Component {
-  render() {
+const App = () => {
     return (
       <div>
-        <SignUp />
-        <Login />
-        <Noticeboard />
+      <Navbar />
+        <Route component={Home} path="/" exact />
+        <Route component={Login} path="/login" />
+        <Route component={SignUp} path="/signup" />
+        <Route component={Noticeboard} path="/noticeboard" />
       </div>
     );
-  }
-}
-
-
-
-export default App;
+  };
+  
+  export default App;
